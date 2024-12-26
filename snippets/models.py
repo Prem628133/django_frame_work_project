@@ -1,4 +1,4 @@
-from django.db import models
+from django.db import models # type: ignore
 from pygments.lexers import get_all_lexers
 from pygments.styles import get_all_styles
 
