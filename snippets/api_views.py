@@ -1,8 +1,10 @@
+from snippets import permissions
 from snippets.models import Snippet
 from snippets.serializers import SnippetSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
+from snippets.permissions import IsOwnerOrReadOnly
 
 @api_view(['GET', 'POST'])
 def snippet_list(request):
@@ -45,4 +47,6 @@ def snippet_detail(request, pk):
     elif request.method == 'DELETE':
         snippet.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+    
+    
 
